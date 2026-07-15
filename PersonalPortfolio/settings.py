@@ -20,10 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sg!s($zo1s0_et7rmp5%v+z4#v7%iciu^mfkv0el4q3%_$nbw3'
+SECRET_KEY = os.environ.get("SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DEBUG") == "True"
 
 ALLOWED_HOSTS = ["*"]
 
@@ -49,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django.middleware.security.SecurityMiddleware",
+    
     "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
@@ -149,7 +150,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'indesigngraphicsfb@gmail.com' # আপনার নিজের যে জিমেইল থেকে মেইল যাবে
 
 # ⚠️ এটি আপনার জিমেইলের পাসওয়ার্ড নয়, এটি হলো 'App Password'
-EMAIL_HOST_PASSWORD = 'jffu cfop fqoj jlaj' 
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD") 
 
 # যে মেইলে আপনি ইউজারের ইনফো রিসিভ করতে চান
 CONTACT_RECEIVER_EMAIL = 'scincescince79@gmail.com'
