@@ -24,12 +24,18 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG") == "True"
+DEBUG = True
 
-ALLOWED_HOSTS = [".onrender.com",]
+ALLOWED_HOSTS = [
+    "portfolio-mostakim-billah.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-CSRF_TRUSTED_ORIGINS = ["https://your-app-name.onrender.com"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://portfolio-mostakim-billah.onrender.com",
+]
 
 
 
